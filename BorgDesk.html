@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BORG Desk ERP — Modern Redesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"/>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <style>
+   :root{
+     --text: #1e2a39;
+     --muted: #6a7a8b;
+     --brand: #5b7cfa;       /* primary */
+     --brand-2: #18e3ff;     /* secondary */
+     --accent: #ff7ab6;      /* accent */
+     --accent-2: #ffc857;    /* accent 2 */
+     --bg: #f6f8ff;          /* page bg */
+     --card: #ffffff;        /* card bg */
+     --border: #e9eeff;      /* subtle border */
+     --radius: 14px;
+     --shadow: 0 12px 30px rgba(15,35,95,.12);
+    }
+   *{
+      box-sizing:border-box
+    }
+
+    html,body{
+     scroll-behavior:smooth
+    }
+
+    body{
+     margin:0;
+     font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+     color:var(--text);
+     background:var(--bg);
+    }
+
+    a{
+     color:inherit;
+     text-decoration:none
+    }
+
+    img{
+     max-width:100%;
+     display:block
+    }
+      
+    /* Utilities */
+    .container{
+     max-width:1180px;
+     margin-inline:auto;
+     padding:0 20px
+    }
+
+    .section{
+     padding:80px 0;
+     position:relative
+    }
+
+    .center{
+     text-align:center
+    }
+
+   .muted{
+     color:var(--muted)
+    }
+
+    .highlight{
+     background:linear-gradient(90deg,var(--brand),var(--accent));
+     -webkit-background-clip:text;
+     background-clip:text;
+     color:transparent
+    }
+
+    .btn{
+     display:inline-block;
+     border:0;
+     border-radius:12px;
+     padding:14px 22px;
+     font-weight:700;
+     color:#fff;
+     background:linear-gradient(90deg,var(--brand),var(--brand-2));
+     box-shadow:var(--shadow);
+     transition:transform .15s ease, box-shadow .2s ease;
+    }
+
+    .btn:hover{
+     transform:translateY(-2px);
+     box-shadow:0 16px 38px rgba(91,124,250,.25)
+    }
+
+    .btn--ghost{
+     background:#fff;
+     color:var(--text);
+     border:2px solid var(--border)
+    }
+
+    .btn--light{
+     background:#fff;
+     color:var(--brand)
+    }
+
+    .btn--full{
+     width:100%
+    }
+      
+    /* =======================
+     STICKY NAV
+    ======================= */
+    .header{
+     position:sticky;
+     top:0;
+     z-index:50;
+     background:#ffffffee;
+     backdrop-filter:saturate(180%) blur(8px);
+     border-bottom:1px solid var(--border);
+    }
+
+    .nav-wrap{
+     min-height:64px;
+     display:flex;
+     align-items:center;
+     justify-content:space-between
+    }
+
+    .nav-logo {
+     height: 48px;
+     width: auto;
+     display: block;
+    }
+
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:18px
+    }
+
+    .nav a{
+     font-weight:600;
+     opacity:.85
+    }
+
+    .nav a:hover{opacity:1}
+    .hamburger{display:none;border:0;background:transparent;padding:8px}
+    .hamburger span{display:block;width:26px;height:2px;background:#222;margin:6px 0}
+      
+    /* =======================
+    HERO 
+    ======================= */
+    .hero{
+      background:
+      radial-gradient(1200px 600px at 15% -10%, #bfe2ff 0%, transparent 60%),
+      linear-gradient(135deg, #eef4ff 0%, #ffffff 60%);
+      padding-top:110px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:34px;
+      align-items:start;
+    }
+    .section-intro{
+      margin-bottom:8px;
+      font-weight:600;
+      color:#244;
+      opacity:.8
+    }
+    .hero h1{
+      font-size:clamp(28px,4vw,44px);
+      line-height:1.18;
+      margin:6px 0 14px
+    }
+    .hero p.lead{
+      font-weight:500;
+      margin:0 0 14px
+    }
+    .badges{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin-top:6px
+    }
+    .video-frame{
+      position:relative; aspect-ratio:16/9; background:#000;
+      border-radius:18px; overflow:hidden; box-shadow:var(--shadow);
+    }
+    .video-frame iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%
+    }
+    
+    /* Form card */
+    .form{
+      background:var(--card); border:1px solid var(--border);
+      border-radius:18px; box-shadow:var(--shadow);
+      padding:20px;
+    }
+    .form h3{
+      margin:4px 0 2px
+    }
+    .form .muted{
+      margin:6px 0 14px
+    }
+    .form label{
+      display:block;
+      font-size:.92rem;
+      font-weight:600;
+      margin:10px 0 6px
+    }
+    .form input,.form textarea{
+      width:100%;
+      padding:12px 14px; border-radius:12px; outline:0;
+      border:1.5px solid var(--border); background:#f8faff; font:inherit;
+    }
+    .form input:focus,.form textarea:focus{border-color:var(--brand)}
+    .form .form-msg{margin-top:10px;font-size:.92rem}
+    
+    /* =======================
+     FEATURES (cards)
+    ======================= */
+    .features-grid {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 28px;
+     margin-top: 30px;
+    }
+   
+   .feature-card {
+     background: #fff;
+     border: 1px solid #e5e9f2;
+     border-radius: 14px;
+     padding: 28px 20px;
+     text-align: center;
+     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+   
+   .feature-card:hover {
+     transform: translateY(-6px);
+     border-color: var(--brand);
+     box-shadow: 0 10px 24px rgba(91,124,250,0.15);
+    }
+   
+   .feature-icon {
+     font-size: 36px;
+     color: var(--brand);
+     margin-bottom: 12px;
+    }
+   
+   .feature-card h3 {
+     margin: 8px 0 10px;
+     font-size: 19px;
+     font-weight: 700;
+     color: #333;
+    }
+   
+   .feature-card p {
+     font-size: 0.95rem;
+     color: #555;
+     line-height: 1.5;
+    }
+   /* Responsive */
+   @media (max-width: 990px) {
+     .features-grid {
+       grid-template-columns: 1fr 1fr;
+      }
+    }
+   @media (max-width: 570px) {
+     .features-grid {
+       grid-template-columns: 1fr;
+      }
+    }
+       
+    /* =======================
+     MODULES (compact grid)
+    ======================= */
+    .section--soft{
+      background-image: url(https://media.istockphoto.com/id/1183061869/vector/light-orange-red-watermark-for-cheque-ticket-voucher-website-banner-gift-card-certificate.jpg?s=612x612&w=0&k=20&c=tXZBzrt1NjFUT1hbojbomXKxkGczOCmXVBGAtG_WuUM=);
+      background-size:cover;
+      /* background-attachment: ; */
+      background-position:center;
+    }
+    .modules{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:16px
+    }
+   .module {
+     background: rgba(255,255,255,0.85);
+     backdrop-filter: blur(8px);
+     border: 3px solid var(--brand);
+     border-radius: 16px;
+     padding: 28px;
+     text-align: center;
+     box-shadow: var(--shadow);
+     transition: transform .25s ease, border-color .3s ease;
+    }
+   .module:hover {
+     transform: translateY(-6px);
+     border-color: var(--accent);
+    }
+    .module span{
+     font-size:26px;
+     display:block;
+     margin-bottom:6px}
+    .module h4{
+     margin:4px 0 6px
+    }
+    
+    /* =======================
+     CLIENTS
+    ======================= */
+   .clients .logos {
+     display: grid;
+     grid-template-columns: repeat(6, 1fr); 
+     gap: 24px;
+     margin-top: 30px;
+     align-items: center;
+     justify-items: center;
+    }
+   
+   .clients .logo-card {
+     background: #fff;
+     border: 2px solid #eee;
+     border-radius: 12px;
+     padding: 18px;
+     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+   
+   .clients .logo-card:hover {
+     transform: scale(1.05);
+     box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+     background: linear-gradient(135deg, #e6f3ff, #fff4cc);
+    }
+   
+   .clients .logo-card img {
+     max-width: 190px;
+     height: auto;
+    }
+   .clients h2 {
+     text-align: center;
+     font-size: 28px;
+     font-weight: 600;
+     margin-bottom: 30px;
+    }
+
+    /* =======================
+     STATS (animated counters)
+    ======================= */
+    .section--gradient{
+     background:linear-gradient(135deg,var(--brand),var(--brand-2));
+     color:#fff
+    }
+    .stats-grid{
+     display:grid;
+     grid-template-columns:repeat(4,1fr);
+     gap:12px
+    }
+    .stat{
+     text-align:center;
+     border-radius:16px;
+     padding:22px;
+     background:rgba(255,255,255,.14);
+     border:1px solid rgba(255,255,255,.28);
+     backdrop-filter:blur(4px)
+    }
+    .stat .num{
+     font-size:40px;
+     font-weight:800
+    }
+    .stat .label{
+     opacity:.95
+    }
+    /* =======================
+      PARTNERS & ASSOCIATIONS
+    ======================= */
+    .clients {
+      padding: 20px;
+    }
+    .clients .logos {
+     display: grid;
+     grid-template-columns: repeat(6, 1fr); 
+     gap: 24px;
+     margin-top: 30px;
+     align-items: center;
+     justify-items: center;
+    }
+   
+   .clients .logo-card {
+     background: #fff;
+     border: 2px solid #eee;
+     border-radius: 12px;
+     padding: 18px;
+     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+   
+   .clients .logo-card:hover {
+     transform: scale(1.05);
+     box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+     background: linear-gradient(135deg, #e6f3ff, #fff4cc);
+    }
+   
+   .clients .logo-card img {
+     max-width: 190px;
+     height: auto;
+    }
+    .partners-logos {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 24px;
+    }
+   
+   .partners-logos .logo-card {
+     flex: 0 1 180px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+    }
+    
+    /* =======================
+     TESTIMONIAL + video
+    ======================= */
+   #testimonial {
+     padding: 60px 5%;
+     background-image: url(https://png.pngtree.com/thumb_back/fh260/back_our/20190620/ourmid/pngtree-beautiful-technology-website-business-poster-background-template-image_148436.jpg);
+     background-size:cover;
+     background-position:center;
+    }
+    .testimonials-section {
+      padding: 50px;
+      text-align: center;
+    }
+    .testimonials-section h2 {
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+    .testimonial-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    .testimonial-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+    .testimonial-card h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+    .testimonial-card p {
+      font-size: 14px;
+      color: #555;
+    }
+    .swiper-pagination {
+      margin-top: 15px;
+      position: relative;
+    }
+    /* Two-column layout */
+    .slider-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: stretch;
+    }
+    .slider-half {
+      flex: 1 1 500px;
+      min-width: 300px;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+    }
+    @keyframes fade {
+     from {
+       opacity: 0;
+      }
+     to {
+       opacity: 1;
+      }
+    }
+
+    /* =======================
+     CTA (image overlay)
+    ======================= */
+    .cta{
+      background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1888&auto=format&fit=crop');
+      background-size:cover;
+      background-attachment: fixed;
+      background-position:center;
+      color:#fff
+    }
+    .cta::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.55))}
+    .cta .container{position:relative;z-index:2}
+    
+    /* =======================
+       FOOTER
+    ======================= */
+    .footer-new {
+     background: lightblue;
+     color: black;
+     padding: 40px 20px 20px;
+     font-size: 20px;
+    }
+   .footer-new .footer-top {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     align-items: center;
+     gap: 40px;
+    }
+   .footer-new .footer-left {
+     flex: 1;
+     max-width: 500px;
+    }
+   .footer-new .footer-logo {
+     max-height: 50px;
+     margin-bottom: 12px;
+    }
+   .footer-new .footer-right-img img {
+     max-width: 500px;
+     width: 100%;
+     border-radius: 12px;
+    }
+
+   .footer-new .foot-links {
+     list-style: none;
+     padding: 0;
+     margin: 10px 0 0;
+     display: flex;
+     gap: 20px;
+     justify-content: center;
+    }
+   .footer-new .foot-links a {
+     color: black;
+     font-weight: 500;
+     transition: color .2s;
+    }
+   .footer-new .foot-links a:hover {
+     color: none;
+    }
+   .footer-new .footer-bottom {
+     margin-top: 30px;
+     border-top: 1px solid rgba(255,255,255,.15);
+     padding-top: 12px;
+     text-align: center;
+     font-size: 13px;
+     color: #ccc;
+    }
+    /* =======================
+   SECTION HEADING BOX
+   ======================= */
+   .section-heading {
+     display: inline-block;
+     background: linear-gradient(135deg, var(--brand), var(--accent));
+     color: #fff;
+     padding: 10px 20px;
+     border-radius: 12px;
+     font-weight: 700;
+     font-size: 26px;
+     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    /* =======================
+       REVEAL ANIMATION
+    ======================= */
+    .reveal{
+      opacity:0;
+      transform:translateY(16px);
+      transition:all .6s cubic-bezier(.2,.6,.2,1)
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:none
+    }
+    .section {
+     padding: 60px 0; /* medium spacing for desktop */
+     position: relative;
+    }
+   
+   .hero.section {
+     padding: 100px 0 40px; /* hero thoda prominent rakhenge */
+    }
+   
+   /* Responsive adjustments */
+   @media (max-width: 768px){
+     .section {
+       padding: 30px 0; /* mobile medium spacing */
+      }
+     .hero.section {
+       padding: 20px 0 20px;
+      }
+    }
+
+    
+    /* =======================
+       RESPONSIVE
+    ======================= */
+    @media (max-width: 990px){
+     .nav{
+       display: none;
+       flex-direction: column;
+       padding: 0;
+       border: none;
+       box-shadow: none;
+       width: 100%;
+       position: static; /* important */
+       transform: none;
+      }
+   
+     .nav a{
+       padding: 12px 20px;
+       border-bottom: 1px solid var(--border);
+      }
+   
+     .hamburger{
+       display: block;
+      }
+      .hero-grid {
+       grid-template-columns:1fr;
+       gap: 16px;
+      }
+      .features-grid {
+       grid-template-columns: 1fr 1fr;
+      }
+      .modules{
+        grid-template-columns:repeat(3,1fr)
+      }
+      .clients .logos{
+        grid-template-columns:repeat(3,1fr)
+      }
+      .stats-grid{
+        grid-template-columns:repeat(2,1fr)
+      }
+    }
+    @media (max-width: 768px){
+      .hero h1{
+        font-size:clamp(24px,6vw,32px)
+      }
+      .hero p.lead{
+        font-size:0.95rem
+      }
+       .testimonial-wrapper {
+       flex-direction: column;
+      }
+     .testimonial-video-swiper iframe {
+       height: 200px;
+      }
+      #features .section-head {
+        margin-bottom: 20px;
+      }
+      .features .cards {
+        gap: 20px;
+      }
+    }
+    @media (max-width: 570px){
+      .features-grid {
+       grid-template-columns: 1fr;
+      }
+      .modules{
+        grid-template-columns:repeat(1,1fr)
+      }
+      .clients .logos{
+        grid-template-columns:repeat(1,1fr)
+      }
+      .stats-grid{
+        grid-template-columns:1fr
+      }
+    }
+    @media (max-width: 480px){
+      .modules{
+        grid-template-columns:1fr
+      }
+      .clients .logos{
+        grid-template-columns:1fr
+      }
+      .hero-grid {
+        gap: 8px;
+        padding: 0 10px;
+      }
+      .stats-grid{
+        grid-template-columns:1fr;
+        gap:20px
+      }
+      .footer-new .footer-top{
+        flex-direction:column; 
+        text-align:center;
+      }
+      .footer-new .foot-links{
+        flex-wrap:wrap;
+        gap:12px;
+      }
+    }
+    /* ==== HERO SECTION RESPONSIVE FIX ==== */
+   .hero.section {
+     padding: 110px 0 20px;
+    }
+   
+   @media (max-width: 768px){
+     .hero.section {
+       padding: 20px 0 00px;
+      }
+    }
+  </style>
+</head>
+<body>
+   
+<!-- =======================
+ HEADER / NAV
+======================= -->
+<header class="header" id="top">
+  <div class="container nav-wrap">
+
+    <a class="brand" href="#hero">
+     <img src="https://borgerp.com/registration/assets/images/borg-logo.png" alt="BORG Desk Logo" class="nav-logo">
+   </a>
+    <nav class="nav" id="nav">
+      <a href="#features">Features</a>
+      <a href="#modules">Modules</a>
+      <a href="#clients">Clients</a>
+      <a href="#stats">Stats</a>
+      <a href="#testimonial">Testimonial</a>
+      <a href="#cta" class="btn btn--light">Watch Demo</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- =======================
+     HERO (video left / form right)
+======================= -->
+<section class="hero section" id="hero">
+  <div class="container hero-grid">
+    <!-- Left: video + copy -->
+    <div class="left reveal">
+      <p class="section-intro">Automation • Scalability • Real-time Insights</p>
+      <h1>Transform your business with <span class="highlight">BORG Desk ERP</span> 🚀</h1>
+      <p class="lead muted">Streamline daily operations and empower your team with cloud-first automation.</p>
+
+      <div class="video-frame" style="margin-top:14px">
+        <iframe 
+         src="https://www.youtube.com/embed/wlUjLaZqkeo"
+         frameborder="0"
+         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+         allowfullscreen>
+       </iframe>
+
+      </div>
+
+      <div class="badges">
+        <img src="https://borgerp.com/registration/assets/images/play-store.jpg" alt="Google Play">
+        <img src="https://borgerp.com/registration/assets/images/app-store.jpg" alt="App Store">
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="right reveal">
+      <form id="demo-form" class="form">
+        <h3>Register for a Demo</h3>
+        <p class="muted">Join 200+ businesses improving performance with BORG Desk ERP.</p>
+        <label>Name* <input required type="text" placeholder="Your full name"></label>
+        <label>Email* <input required type="email" placeholder="name@company.com"></label>
+        <label>Phone* <input required type="tel" placeholder="+91 90000 00000"></label>
+        <label>Message <textarea rows="3" placeholder="Your message (optional)"></textarea></label>
+        <button type="submit" class="btn btn--full">Register Now</button>
+        <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- =======================
+ FEATURES
+======================= -->
+<section class="section" id="features" style="background-image: url(https://img.lovepik.com/bg/20231225/Vibrant-3D-Geometric-Hexagon-Animation-Abstract-Multicolour-Video-for-Website_2674373_wh1200.jpg);  background-size:cover; background-position:center; background-attachment: fixed; text-align:center;">
+  <div class="container">
+    <h2 class="center reveal"><span class="section-heading">Key Features of BORG Desk ERP</span></h2> 
+    <br><br>
+    <div class="features-grid">
+
+      <div class="feature-card reveal">
+        <i class="fa-solid fa-gears feature-icon"></i>
+        <h3>Automation</h3>
+        <p>Automates 80% of daily operations — Sales, Service, Inventory, Accounts & Projects.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <i class="fa-solid fa-people-group feature-icon"></i>
+        <h3>Collaboration</h3>
+        <p>Enhances team collaboration with centralized dashboards & real-time notifications.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <i class="fa-solid fa-face-smile feature-icon"></i>
+        <h3>Customer Satisfaction</h3>
+        <p>CRM, ticketing & SLA tracking to delight your customers.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <i class="fa-solid fa-file-invoice-dollar feature-icon"></i>
+        <h3>Financial Management</h3>
+        <p>Smart invoicing, GST compliance & expense tracking made easy.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <i class="fa-solid fa-chart-line feature-icon"></i>
+        <h3>Data Insights</h3>
+        <p>Advanced MIS reports & profitability analysis for better decisions.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <i class="fa-solid fa-cloud feature-icon"></i>
+        <h3>Scalable & Cloud</h3>
+        <p>Seamlessly supports multiple locations & remote teams.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =======================
+ MODULES
+======================= -->
+<section class="section section--soft" id="modules">
+  <div class="container">
+    <h2 class="center reveal"><span class="section-heading">Complete Business Automation for Maximum Efficiency</span></h2> <br><br>
+    <div class="modules">
+      <div class="module reveal"><span>📞</span><h4>Sales & CRM</h4><p class="muted">Leads, follow-ups, quotations & customers.</p></div>
+      <div class="module reveal"><span>🛟</span><h4>Service & Support</h4><p class="muted">Ticketing, SLAs, reminders.</p></div>
+      <div class="module reveal"><span>📦</span><h4>Inventory</h4><p class="muted">Real-time stock, transfers & purchases.</p></div>
+      <div class="module reveal"><span>🧾</span><h4>Accounts & Billing</h4><p class="muted">Invoicing, GST & recurring billing.</p></div>
+      <div class="module reveal"><span>📝</span><h4>Sales Orders</h4><p class="muted">Order generation, approvals & tracking.</p></div>
+      <div class="module reveal"><span>🏭</span><h4>Production</h4><p class="muted">RM, orders, production tracking.</p></div>
+      <div class="module reveal"><span>✅</span><h4>Task Mgmt</h4><p class="muted">Assign, track & improve productivity.</p></div>
+      <div class="module reveal"><span>🧑‍💼</span><h4>HR & Payroll</h4><p class="muted">Attendance & payroll processing.</p></div>
+      <div class="module reveal"><span>📊</span><h4>Projects</h4><p class="muted">Quotes, scope, milestones & activities.</p></div>
+      <div class="module reveal"><span>🌍</span><h4>Multi-Branch</h4><p class="muted">Remote access with cloud.</p></div>
+      <div class="module reveal"><span>🔔</span><h4>Alerts</h4><p class="muted">Reminders for payments & renewals.</p></div>
+      <div class="module reveal"><span>🔌</span><h4>Integrations</h4><p class="muted">WhatsApp, IVR, IndiaMART & more.</p></div>
+    </div>
+  </div>
+</section> <br><br>
+
+<!-- =======================
+ CLIENTS
+======================= -->
+<section class="clients" style="background-image: url(https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTExL3Jhd3BpeGVsX29mZmljZV8zMF9hYnN0cmFjdF9ncmFkaWVudF93aGl0ZV9iYWNrZ3JvdW5kX3ZlY3Rvcl9wcl9kZGY3ZTJiNC0wMjU3LTRjMTUtOWFjNS0xMmQwZTA0N2E4MWYuanBn.jpg); background-size:cover; background-position:center; text-align: center;">
+  <h2><span class="section-heading">Few of Our Esteemed Clients</h2>
+  <div class="logos">
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/9.jpeg" alt="Client 1"></div>
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/8.jpeg" alt="Client 2"></div>
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/7.jpeg" alt="Client 3"></div>
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/Untitled-2.png" alt="Client 4"></div>
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/9.png" alt="Client 5"></div>
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/26.jpeg" alt="Client 6"></div>
+
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/10.jpeg" alt="Client 7"></div>
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/1.png" alt="Client 8"></div>
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/11.png" alt="Client 9"></div>
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/8.png" alt="Client 10"></div>
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/7.png" alt="Client 11"></div>
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/12.png" alt="Client 12"></div>
+  </div>
+    <div class="center"> <br><br>
+      <a href="#demo-form" class="btn">Register for Demo</a>
+    </div>
+  </div>
+</section> <br><br>
+
+<!-- =======================
+ STATS (counters)
+======================= -->
+<section class="section section--gradient" id="stats">
+  <div class="container stats-grid">
+    <div class="stat reveal"><div class="num" data-target="2000">0</div><div class="label">Happy Users</div></div>
+    <div class="stat reveal"><div class="num" data-target="200">0</div><div class="label">Businesses</div></div>
+    <div class="stat reveal"><div class="num" data-target="10">0</div><div class="label">Partners</div></div>
+    <div class="stat reveal"><div class="num" data-target="99.9" data-decimals="1">0</div><div class="label">Uptime (%)</div></div>
+  </div>
+</section>
+
+<!-- =======================
+ PARTNERS & ASSOCIATIONS
+======================= -->
+<section class="clients" style="background: #f6f8ff; text-align: center; padding: 60px 0;">
+  <h2><span class="section-heading">PARTNERS & ASSOCIATIONS</h2>
+  <div class="partners-logos">
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/8-1.jpeg" alt="Startup India"></div>
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/4.jpeg" alt="MSME"></div>
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/6.jpeg" alt="Sharda Launchpad"></div>
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/7-2.jpeg" alt="AFMEC"></div>
+    <div class="logo-card"><img src="https://borgerp.com/registration/assets/images/Untitled-2.jpeg" alt="CallerDesk"></div>
+  </div>
+</section>
+
+<!-- =======================
+ CTA
+======================= -->
+<section class="section cta" id="cta" aria-label="Watch Demo">
+  <div class="container center reveal">
+    <h2>Explore Our Solution Today!</h2>
+    <p>Ready to experience the benefits? Watch an online recorded demo and discover how our solution can transform your business.</p>
+    <a class="btn btn--light" href="https://youtu.be/wlUjLaZqkeo?si=9_BSVSFC8JeV3uhT" target="_blank" rel="noreferrer">Click Here to Watch Now</a>
+  </div>
+</section>
+
+<!-- =======================
+ TESTIMONIAL + VIDEO
+======================= -->
+<section class="testimonials-section">
+  <h2>WHY DO PEOPLE LOVE BORG DESK ERP?</h2>
+
+  <div class="slider-wrapper">
+    <!-- Testimonials Swiper -->
+    <div class="slider-half">
+      <div class="swiper testimonialSwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <img src="https://via.placeholder.com/80" alt="User">
+              <h3>Ms CS Shweta Gupta</h3>
+              <h4>Founder & CEO at Muds Management Pvt Ltd</h4>
+              <p>BORG Software helped us transition smoothly from Google Sheets to ERP. Excellent support and flawless implementation!</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <img src="https://via.placeholder.com/80" alt="User">
+              <h3>Another Client2</h3>
+              <h4>Director at XYZ Pvt Ltd</h4>
+              <p>The software streamlined our processes and improved efficiency. Highly recommended!</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <img src="https://via.placeholder.com/80" alt="User">
+              <h3>Another Client3</h3>
+              <h4>Director at XYZ Pvt Ltd</h4>
+              <p>The software streamlined our processes and improved efficiency. Highly recommended!</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <img src="https://via.placeholder.com/80" alt="User">
+              <h3>Another Client4</h3>
+              <h4>Director at XYZ Pvt Ltd</h4>
+              <p>The software streamlined our processes and improved efficiency. Highly recommended!</p>
+            </div>
+          </div>
+        </div>
+        <!-- Pagination -->
+        <div class="swiper-pagination testimonial-pagination"><i class="fa-solid fa-dash"></i></div>
+      </div>
+    </div>
+
+    <!-- Video Swiper -->
+    <div class="slider-half">
+      <div class="swiper videoSwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <iframe src="https://www.youtube.com/embed/zyQjR6sb4QQ" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="swiper-slide">
+            <iframe src="https://www.youtube.com/embed/4N2jfh6y6hg" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="swiper-slide">
+            <iframe src="https://www.youtube.com/embed/4N2jfh6y6hg" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="swiper-slide">
+            <iframe src="https://www.youtube.com/embed/4N2jfh6y6hg" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <!-- Pagination -->
+        <div class="swiper-pagination video-pagination"><i class="fa-solid fa-dash"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =======================
+ FOOTER
+======================= -->
+<footer class="footer-new">
+  <div class="container">
+    <div class="footer-top">
+      
+      <!-- Left Side -->
+      <div class="footer-left">
+        <img src="https://borgerp.com/registration/assets/images/borg-logo.png" alt="BORG Desk Logo" class="footer-logo">
+        <h3>BorgDesk work place plus collaboration</h3>
+        <p>
+          Comprehensive business work place software integrated with Sales Automation, 
+          Task Delegation, Stock & Distribution, Accounts & Receivable.
+        </p>
+        <p>📞 +91 966-791-6787</p>
+        <p>✉️ <a href="mailto:servicedesk@borgerp.com">servicedesk@borgerp.com</a></p>
+        <a href="#demo-form" class="btn btn--light">Register for Demo</a>
+      </div>
+      <!-- Right Side -->
+      <div class="footer-right-img">
+        <img src="https://borgerp.com/registration/assets/images/landing.jpg" alt="Customer Support Desk">
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p style="color: black;">© Copyright borgsuite.com 2016-2025. All Rights Reserved.</p>
+      <ul class="foot-links">
+        <li><a href="#">Term of Use</a></li>
+        <li><a href="#">Refund Policy</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+<!-- =======================
+ JS: Nav toggle • Reveal • Counters • Form stub
+======================= -->
+<script>
+// Mobile nav toggle
+hamburger?.addEventListener('click', () => {
+  nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
+});
+
+// Close on link click (mobile)
+document.querySelectorAll('#nav a').forEach(a =>
+  a.addEventListener('click', () => { if (window.innerWidth < 980) nav.style.display = 'none'; })
+);
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => io.observe(el));
+
+// Animated counters
+function animateNumber(el){
+  const target = parseFloat(el.dataset.target || '0');
+  const decimals = parseInt(el.dataset.decimals || '0', 10);
+  let current = 0;
+  const duration = 1500;
+  const start = performance.now();
+  function step(now){
+    const p = Math.min(1, (now - start)/duration);
+    const eased = 1 - Math.pow(1-p, 3);
+    current = target * eased;
+    el.textContent = current.toFixed(decimals);
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const counters = document.querySelectorAll('.stat .num');
+const io2 = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ animateNumber(e.target); io2.unobserve(e.target); }
+  });
+},{threshold:.6});
+counters.forEach(c=>io2.observe(c));
+
+// Simple (demo) form handler
+const form = document.getElementById('demo-form');
+form?.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  document.getElementById('form-msg').textContent = '✅ Thanks! We will contact you shortly.';
+  form.reset();
+});
+// Initialize both swipers
+  var testimonialSwiper = new Swiper(".testimonialSwiper", {
+    loop: true,
+    autoplay: {
+      delay: 5000,
+    },
+    pagination: {
+      el: ".testimonial-pagination",
+      clickable: true,
+    },
+  });
+
+  var videoSwiper = new Swiper(".videoSwiper", {
+    loop: true,
+    autoplay: {
+      delay: 5000,
+    },
+    pagination: {
+      el: ".video-pagination",
+      clickable: true,
+    },
+  });
+
+  // Sync both swipers
+  testimonialSwiper.controller.control = videoSwiper;
+  videoSwiper.controller.control = testimonialSwiper;
+</script>
+</body>
+</html>
